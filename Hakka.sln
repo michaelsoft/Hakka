@@ -3,27 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{435DAA6D-1780-4338-8C7E-ECCE96E12256}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{435DAA6D-1780-4338-8C7E-ECCE96E12256}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{890C05B8-CD6A-4737-BD03-EED204C4B04E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testproject", "testproject", "{890C05B8-CD6A-4737-BD03-EED204C4B04E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BugBox", "BugBox", "{BE721BEA-9207-4E68-AF24-329BFA97F28B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.Domain.Shared", "test\BugBox\BugBox.Domain.Shared\BugBox.Domain.Shared.csproj", "{D85C524C-6A02-48EF-A988-AD1D0ABA3DBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.Domain.Shared", "testproject\BugBox\BugBox.Domain.Shared\BugBox.Domain.Shared.csproj", "{D85C524C-6A02-48EF-A988-AD1D0ABA3DBA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.Domain", "test\BugBox\BugBox.Domain\BugBox.Domain.csproj", "{02BDF315-B4BE-4B0D-90A9-F9048D9C207A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.Domain", "testproject\BugBox\BugBox.Domain\BugBox.Domain.csproj", "{02BDF315-B4BE-4B0D-90A9-F9048D9C207A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.Repository.EF", "test\BugBox\BugBox.Repository.EF\BugBox.Repository.EF.csproj", "{F452597E-2C90-4D55-A52F-BAC228BC361B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.Repository.EF", "testproject\BugBox\BugBox.Repository.EF\BugBox.Repository.EF.csproj", "{F452597E-2C90-4D55-A52F-BAC228BC361B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.App.Contracts", "test\BugBox\BugBox.App.Contracts\BugBox.App.Contracts.csproj", "{D9336F80-F6C6-4E6A-AFD1-1C281086B181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.App.Contracts", "testproject\BugBox\BugBox.App.Contracts\BugBox.App.Contracts.csproj", "{D9336F80-F6C6-4E6A-AFD1-1C281086B181}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.App", "test\BugBox\BugBox.App\BugBox.App.csproj", "{1E600F68-20C6-41BE-8532-09BC88C70DB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.App", "testproject\BugBox\BugBox.App\BugBox.App.csproj", "{1E600F68-20C6-41BE-8532-09BC88C70DB0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.HttpApi", "test\BugBox\BugBox.HttpApi\BugBox.HttpApi.csproj", "{46B36732-06C0-44CC-B59C-F4C590DDCD9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.HttpApi", "testproject\BugBox\BugBox.HttpApi\BugBox.HttpApi.csproj", "{46B36732-06C0-44CC-B59C-F4C590DDCD9C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.MvcWeb", "test\BugBox\BugBox.MvcWeb\BugBox.MvcWeb.csproj", "{73AC8A7F-5E68-4289-BD43-F77689A3F861}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.MvcWeb", "testproject\BugBox\BugBox.MvcWeb\BugBox.MvcWeb.csproj", "{73AC8A7F-5E68-4289-BD43-F77689A3F861}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugBox.Test", "test\BugBox\BugBox.Test\BugBox.Test.csproj", "{9349A749-3985-4A9D-B6BE-6506E5284788}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.Test", "testproject\BugBox\BugBox.Test\BugBox.Test.csproj", "{9349A749-3985-4A9D-B6BE-6506E5284788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hakka.Domain", "framework\Hakka.Domain\Hakka.Domain.csproj", "{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,18 @@ Global
 		{9349A749-3985-4A9D-B6BE-6506E5284788}.Release|x64.Build.0 = Release|Any CPU
 		{9349A749-3985-4A9D-B6BE-6506E5284788}.Release|x86.ActiveCfg = Release|Any CPU
 		{9349A749-3985-4A9D-B6BE-6506E5284788}.Release|x86.Build.0 = Release|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Debug|x64.Build.0 = Debug|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Debug|x86.Build.0 = Debug|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Release|x64.ActiveCfg = Release|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Release|x64.Build.0 = Release|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Release|x86.ActiveCfg = Release|Any CPU
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -145,6 +159,7 @@ Global
 		{46B36732-06C0-44CC-B59C-F4C590DDCD9C} = {BE721BEA-9207-4E68-AF24-329BFA97F28B}
 		{73AC8A7F-5E68-4289-BD43-F77689A3F861} = {BE721BEA-9207-4E68-AF24-329BFA97F28B}
 		{9349A749-3985-4A9D-B6BE-6506E5284788} = {BE721BEA-9207-4E68-AF24-329BFA97F28B}
+		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47} = {435DAA6D-1780-4338-8C7E-ECCE96E12256}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0174EE82-9DCB-49F7-B144-5D6F39A7C90A}
