@@ -1,11 +1,12 @@
-using System;
+using BugBox.Domain.Bugs;
+using BugBox.Repository.EF;
+using BugBox.Repository.EF.Bugs;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System.IO;
 using System.Threading.Tasks;
 using Xunit;
-using BugBox.Domain.Bugs;
-using BugBox.Repository.EF.Bugs;
-using BugBox.Repository.EF;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace BugBox.Test
 {
@@ -22,9 +23,17 @@ namespace BugBox.Test
 
         public BugBoxRepositoryTest()
         {
+            var configBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false);
+
+            IConfiguration config = configBuilder.Build();
+
+            var connStr = config.GetConnectionString("Default");
+
             var services = new ServiceCollection();
             services.AddDbContext<BugBoxDbContext>(opts => { 
-                opts.UseSqlServer();
+                opts.UseSqlServer(connStr);
             });
 
             this.ServiceProvider = services.BuildServiceProvider();

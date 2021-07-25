@@ -1,7 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\framework\Hakka.Domain\Hakka.Domain.csproj" />
+    <ProjectReference Include="..\BugBox.App.Contracts\BugBox.App.Contracts.csproj" />
+    <ProjectReference Include="..\BugBox.Domain.Shared\BugBox.Domain.Shared.csproj" />
+    <ProjectReference Include="..\BugBox.Domain\BugBox.Domain.csproj" />
+    <ProjectReference Include="..\BugBox.Repository.EF\BugBox.Repository.EF.csproj" />
+  </ItemGroup>
 
 </Project>

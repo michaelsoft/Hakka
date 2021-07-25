@@ -6,7 +6,7 @@ namespace BugBox.Repository.EF
 {
     public class BugBoxDbContext : DbContext
     {
-        private string connStr = "Server=localhost;Integrated Security=true;Database=BugBoxDb;";
+        //private string connStr = "Server=localhost;Integrated Security=true;Database=BugBoxDb;";
 
         public BugBoxDbContext()
         {
@@ -15,7 +15,7 @@ namespace BugBox.Repository.EF
 
         public BugBoxDbContext(string connStr)
         {
-            this.connStr = connStr;
+            //this.connStr = connStr;
         }
 
         public BugBoxDbContext(DbContextOptions<BugBoxDbContext> options)
@@ -26,9 +26,9 @@ namespace BugBox.Repository.EF
 
         public DbSet<Bug> Bugs { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(this.connStr);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(this.connStr);
+        //}
     }
 }

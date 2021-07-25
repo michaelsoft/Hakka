@@ -41,7 +41,7 @@ namespace Hakka.Domain.Repositories
 
         public async Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
-            return await db.Set<TEntity>().FindAsync(id, cancellationToken);
+            return await db.Set<TEntity>().FindAsync(new object[] { id }, cancellationToken);
         }
 
         public async Task<List<TEntity>> GetListAsync(CancellationToken cancellationToken = default)
