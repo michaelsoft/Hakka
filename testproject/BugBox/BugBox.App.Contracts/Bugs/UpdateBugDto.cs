@@ -1,13 +1,12 @@
-﻿using System;
+﻿using BugBox.Domain.Shared.Bugs;
 using System.ComponentModel.DataAnnotations;
-using BugBox.Domain.Shared.Bugs;
 
 namespace BugBox.App.Contracts.Bugs
 {
-    public class BugDto
+    public class UpdateBugDto
     {
-        public int Id { get; set; }
-
+        [Required]
+        [StringLength(500)]
         public string Title { get; set; }
 
         public string Description { get; set; }
@@ -18,5 +17,4 @@ namespace BugBox.App.Contracts.Bugs
 
         public BugStatus Status { get; set; }
     }
-
 }

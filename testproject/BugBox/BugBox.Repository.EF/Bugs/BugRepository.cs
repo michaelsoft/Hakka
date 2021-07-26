@@ -10,7 +10,7 @@ using Hakka.Domain.Repositories;
 
 namespace BugBox.Repository.EF.Bugs
 {
-    public class BugRepository : EfRepository<Bug>
+    public class BugRepository : EfRepository<Bug>, IBugRepository
     {
         public BugRepository(BugBoxDbContext db):base(db)
         {

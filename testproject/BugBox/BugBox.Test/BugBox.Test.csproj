@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BugBox.App.Contracts\BugBox.App.Contracts.csproj" />
+    <ProjectReference Include="..\BugBox.App\BugBox.App.csproj" />
+    <ProjectReference Include="..\BugBox.Domain.Shared\BugBox.Domain.Shared.csproj" />
+    <ProjectReference Include="..\BugBox.Domain\BugBox.Domain.csproj" />
     <ProjectReference Include="..\BugBox.Repository.EF\BugBox.Repository.EF.csproj" />
   </ItemGroup>
 

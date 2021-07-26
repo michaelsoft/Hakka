@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.MvcWeb", "testprojec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugBox.Test", "testproject\BugBox\BugBox.Test\BugBox.Test.csproj", "{9349A749-3985-4A9D-B6BE-6506E5284788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hakka.Domain", "framework\Hakka.Domain\Hakka.Domain.csproj", "{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hakka.Domain", "framework\Hakka.Domain\Hakka.Domain.csproj", "{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hakka.App", "framework\Hakka.App\Hakka.App.csproj", "{2EED01C0-E47F-4838-A79B-55A704FA4650}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +147,18 @@ Global
 		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Release|x64.Build.0 = Release|Any CPU
 		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Release|x86.ActiveCfg = Release|Any CPU
 		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47}.Release|x86.Build.0 = Release|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Debug|x64.Build.0 = Debug|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Debug|x86.Build.0 = Debug|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Release|x64.ActiveCfg = Release|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Release|x64.Build.0 = Release|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Release|x86.ActiveCfg = Release|Any CPU
+		{2EED01C0-E47F-4838-A79B-55A704FA4650}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,6 +174,7 @@ Global
 		{73AC8A7F-5E68-4289-BD43-F77689A3F861} = {BE721BEA-9207-4E68-AF24-329BFA97F28B}
 		{9349A749-3985-4A9D-B6BE-6506E5284788} = {BE721BEA-9207-4E68-AF24-329BFA97F28B}
 		{42AE8588-9EAD-4ED1-AE7F-5EA877D0EB47} = {435DAA6D-1780-4338-8C7E-ECCE96E12256}
+		{2EED01C0-E47F-4838-A79B-55A704FA4650} = {435DAA6D-1780-4338-8C7E-ECCE96E12256}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0174EE82-9DCB-49F7-B144-5D6F39A7C90A}

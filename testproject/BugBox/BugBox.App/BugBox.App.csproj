@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\framework\Hakka.App\Hakka.App.csproj" />
     <ProjectReference Include="..\..\..\framework\Hakka.Domain\Hakka.Domain.csproj" />
     <ProjectReference Include="..\BugBox.App.Contracts\BugBox.App.Contracts.csproj" />
     <ProjectReference Include="..\BugBox.Domain.Shared\BugBox.Domain.Shared.csproj" />

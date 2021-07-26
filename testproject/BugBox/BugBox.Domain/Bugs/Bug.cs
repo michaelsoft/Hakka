@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using BugBox.Domain.Shared.Bugs;
 using BugBox.Domain.Users;
+using Hakka.Domain.Entities;
 
 namespace BugBox.Domain.Bugs
 {
-    public class Bug
+    public class Bug : Entity
     {
-        public int Id { get; set; }
-
         public string Title { get; set; }
 
         public string Description { get; set; }

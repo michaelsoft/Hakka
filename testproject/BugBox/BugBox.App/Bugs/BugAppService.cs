@@ -3,24 +3,18 @@ using System.Threading.Tasks;
 using BugBox.App.Contracts.Bugs;
 using BugBox.Domain.Bugs;
 using Hakka.Domain.Repositories;
+using AutoMapper;
+using Hakka.App;
+using System.Collections.Generic;
 
 namespace BugBox.App.Bugs
 {
-    public class BugAppService
+    public class BugAppService : CrudAppServiceBase<CreateBugDto, UpdateBugDto, BugDto, Bug>, 
+        IBugAppService
     {
-        private IBugRepository bugRepository;
-
-        public  BugAppService(IBugRepository bugRepository)
+        public  BugAppService(IBugRepository bugRepository) :
+            base(bugRepository)
         {
-            this.bugRepository = bugRepository;
-        }
-
-        public async Task<BugDto> CreateAsync(CreateBugDto input)
-        {
-            //await this.bugRepository.InsertAsync(bug);
-
-            //return ObjectMapper.Map<Bug, BugDto>(bug);
-            return null;
         }
 
     }
