@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BugBox.App.Contracts.Bugs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,18 @@ namespace BugBox.MvcWeb.Controllers
 {
     public class BugController : Controller
     {
+        private IBugAppService bugAppService;
+
+        public BugController(IBugAppService bugAppService)
+        {
+            this.bugAppService = bugAppService;
+        }
+
         // GET: BugController
         public ActionResult Index()
         {
-            return View();
+            var bugList = new List<BugDto>();
+            return View(bugList);
         }
 
         // GET: BugController/Details/5
@@ -24,7 +34,15 @@ namespace BugBox.MvcWeb.Controllers
         // GET: BugController/Create
         public ActionResult Create()
         {
-            return View();
+            var bug = new BugDto();
+
+            List<SelectListItem> severityList = new List<SelectListItem>();
+            severityList.Add(new SelectListItem { Text = "High", Value = "1" });
+            severityList.Add(new SelectListItem { Text = "Medium", Value = "2" });
+            severityList.Add(new SelectListItem { Text = "Low", Value = "3" });
+            ViewBag.SeverityList = severityList;
+
+            return View("Details", bug);
         }
 
         // POST: BugController/Create

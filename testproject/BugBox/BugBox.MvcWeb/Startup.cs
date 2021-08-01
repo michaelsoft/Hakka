@@ -8,6 +8,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+using BugBox.App.Contracts.Bugs;
+using BugBox.App.Bugs;
+using BugBox.Repository.EF;
+using Microsoft.EntityFrameworkCore;
+using BugBox.Domain.Bugs;
+using BugBox.Repository.EF.Bugs;
+
 
 namespace BugBox.MvcWeb
 {
@@ -25,6 +32,12 @@ namespace BugBox.MvcWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<BugBoxDbContext>(options => 
+              options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddScoped<IBugRepository, BugRepository>();
+            services.AddScoped<IBugAppService, BugAppService>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

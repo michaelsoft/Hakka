@@ -8,4 +8,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BugBox.App.Contracts\BugBox.App.Contracts.csproj" />
+    <ProjectReference Include="..\BugBox.App\BugBox.App.csproj" />
+  </ItemGroup>
+
 </Project>
