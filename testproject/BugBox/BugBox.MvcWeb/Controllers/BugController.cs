@@ -19,9 +19,9 @@ namespace BugBox.MvcWeb.Controllers
         }
 
         // GET: BugController
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var bugList = new List<BugDto>();
+            var bugList = await this.LoadBugList();
             return View(bugList);
         }
 
@@ -36,13 +36,43 @@ namespace BugBox.MvcWeb.Controllers
         {
             var bug = new BugDto();
 
-            List<SelectListItem> severityList = new List<SelectListItem>();
-            severityList.Add(new SelectListItem { Text = "High", Value = "1" });
-            severityList.Add(new SelectListItem { Text = "Medium", Value = "2" });
-            severityList.Add(new SelectListItem { Text = "Low", Value = "3" });
-            ViewBag.SeverityList = severityList;
+            ViewBag.SeverityList = LoadSeverityList();
+            ViewBag.PriorityList = LoadPriorityList();
+            ViewBag.StatusList = LoadStatusList();
 
             return View("Details", bug);
+        }
+
+        private async Task<List<BugDto>> LoadBugList()
+        {
+            return await this.bugAppService.GetListAsync();
+        }
+
+        private List<SelectListItem> LoadSeverityList()
+        {
+            var retVal = new List<SelectListItem>();
+            retVal.Add(new SelectListItem { Text = "High", Value = "1" });
+            retVal.Add(new SelectListItem { Text = "Medium", Value = "2" });
+            retVal.Add(new SelectListItem { Text = "Low", Value = "3" });
+            return retVal;
+        }
+
+        private List<SelectListItem> LoadPriorityList()
+        {
+            var retVal = new List<SelectListItem>();
+            retVal.Add(new SelectListItem { Text = "High", Value = "1" });
+            retVal.Add(new SelectListItem { Text = "Medium", Value = "2" });
+            retVal.Add(new SelectListItem { Text = "Low", Value = "3" });
+            return retVal;
+        }
+
+        private List<SelectListItem> LoadStatusList()
+        {
+            var retVal = new List<SelectListItem>();
+            retVal.Add(new SelectListItem { Text = "New", Value = "1" });
+            retVal.Add(new SelectListItem { Text = "Confirmed", Value = "2" });
+            retVal.Add(new SelectListItem { Text = "Fixed", Value = "3" });
+            return retVal;
         }
 
         // POST: BugController/Create
@@ -50,6 +80,8 @@ namespace BugBox.MvcWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
+
+
             try
             {
                 return RedirectToAction(nameof(Index));
@@ -57,6 +89,25 @@ namespace BugBox.MvcWeb.Controllers
             catch
             {
                 return View();
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Save(CreateBugDto bugDto)
+        {
+            if (!ModelState.IsValid)
+                return View("Home/Error");
+
+            try
+            {
+                await this.bugAppService.CreateAsync(bugDto);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View("Home/Error");
             }
         }
 

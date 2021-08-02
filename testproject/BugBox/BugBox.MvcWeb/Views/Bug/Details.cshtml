@@ -11,7 +11,7 @@
     <hr />
     <dl class="row">
         <div class="col-md-4">
-            <form asp-action="Edit">
+            <form asp-action="Save">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
                 <div class="form-group">
@@ -32,12 +32,14 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Priority" class="control-label"></label>
-                    <input asp-for="Priority" class="form-control" />
+                    @*<input asp-for="Priority" class="form-control" />*@
+                    @Html.DropDownListFor(model => model.Priority, (List<SelectListItem>)ViewBag.PriorityList);
                     <span asp-validation-for="Priority" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Status" class="control-label"></label>
-                    <input asp-for="Status" class="form-control" />
+                    @*<input asp-for="Status" class="form-control" />*@
+                    @Html.DropDownListFor(model => model.Status, (List<SelectListItem>)ViewBag.StatusList);
                     <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
                 <div class="form-group">
