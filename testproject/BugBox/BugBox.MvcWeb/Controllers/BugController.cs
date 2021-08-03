@@ -6,23 +6,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MvcWebTest.Models;
+using AutoMapper;
 
 namespace BugBox.MvcWeb.Controllers
 {
     public class BugController : Controller
     {
         private IBugAppService bugAppService;
+        private IMapper mapper;
 
-        public BugController(IBugAppService bugAppService)
+        public BugController(IBugAppService bugAppService, IMapper mapper)
         {
             this.bugAppService = bugAppService;
+            this.mapper = mapper;
         }
 
         // GET: BugController
         public async Task<ActionResult> Index()
         {
-            var bugList = await this.LoadBugList();
-            return View(bugList);
+            var bugDtoList = await this.LoadBugList();
+            var bugVMList = this.mapper.Map<BugViewModel[]>(bugDtoList);
+            return View(bugVMList);
         }
 
         // GET: BugController/Details/5
@@ -34,7 +39,7 @@ namespace BugBox.MvcWeb.Controllers
         // GET: BugController/Create
         public ActionResult Create()
         {
-            var bug = new BugDto();
+            var bug = new BugViewModel();
 
             ViewBag.SeverityList = LoadSeverityList();
             ViewBag.PriorityList = LoadPriorityList();
@@ -94,13 +99,14 @@ namespace BugBox.MvcWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Save(CreateBugDto bugDto)
+        public async Task<ActionResult> Save(CreateBugViewModel createBugViewModel)
         {
             if (!ModelState.IsValid)
                 return View("Home/Error");
 
             try
             {
+                CreateBugDto bugDto = this.mapper.Map<CreateBugDto>(createBugViewModel);
                 await this.bugAppService.CreateAsync(bugDto);
 
                 return RedirectToAction(nameof(Index));

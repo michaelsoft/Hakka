@@ -37,7 +37,9 @@ namespace BugBox.MvcWeb
               options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddScoped<IBugRepository, BugRepository>();
             services.AddScoped<IBugAppService, BugAppService>();
-            
+            services.AddMapper();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
