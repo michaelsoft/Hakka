@@ -1,4 +1,4 @@
-﻿@model MvcWebTest.Models.BugViewModel
+﻿@model BugBox.MvcWeb.Models.Bugs.BugViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -26,19 +26,16 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Severity" class="control-label"></label>
-                    @*<input asp-for="Severity" class="form-control" />*@
                     @Html.DropDownListFor(model => model.Severity, (List<SelectListItem>)ViewBag.SeverityList);
                     <span asp-validation-for="Severity" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Priority" class="control-label"></label>
-                    @*<input asp-for="Priority" class="form-control" />*@
                     @Html.DropDownListFor(model => model.Priority, (List<SelectListItem>)ViewBag.PriorityList);
                     <span asp-validation-for="Priority" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Status" class="control-label"></label>
-                    @*<input asp-for="Status" class="form-control" />*@
                     @Html.DropDownListFor(model => model.Status, (List<SelectListItem>)ViewBag.StatusList);
                     <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
@@ -47,38 +44,6 @@
                 </div>
             </form>
         </div>
-        <!--
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Severity)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Severity)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Priority)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Priority)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-            -->
     </dl>
 </div>
 <div>

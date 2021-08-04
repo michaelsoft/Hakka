@@ -1,9 +1,9 @@
 ﻿using BugBox.Domain.Shared.Bugs;
 using System.ComponentModel.DataAnnotations;
 
-namespace BugBox.App.Contracts.Bugs
+namespace BugBox.MvcWeb.Models.Bugs
 {
-    public class CreateBugDto
+    public class CreateUpdateBugViewModel
     {
         [Required]
         [StringLength(500)]

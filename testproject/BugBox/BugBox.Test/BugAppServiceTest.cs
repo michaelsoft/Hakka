@@ -45,14 +45,14 @@ namespace BugBox.Test
             db.Database.EnsureCreated();
 
             bugRepository = new BugRepository(db);
-            bugAppService = new BugAppService(bugRepository);
+            bugAppService = new BugAppService(bugRepository, null);
         }
 
         [Fact]
         public async Task Crud_Normal()
         {
             //Create
-            var createBugDto = new CreateBugDto()
+            var createBugDto = new CreateUpdateBugDto()
             {
                 Title = "Bug 1",
             };
@@ -66,7 +66,7 @@ namespace BugBox.Test
             Assert.Equal(createBugDto.Title, bugDto.Title);
 
             //Udpate
-            var updateBugDto = new UpdateBugDto()
+            var updateBugDto = new CreateUpdateBugDto()
             {
                 Title = "Bug 1-1",
             };
@@ -75,13 +75,13 @@ namespace BugBox.Test
             Assert.Equal(updateBugDto.Title, bugDto.Title);
 
             //Create More
-            createBugDto = new CreateBugDto()
+            createBugDto = new CreateUpdateBugDto()
             {
                 Title = "Bug 2",
             };
             bugDto = await bugAppService.CreateAsync(createBugDto);
 
-            createBugDto = new CreateBugDto()
+            createBugDto = new CreateUpdateBugDto()
             {
                 Title = "Bug 3",
             };

@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using BugBox.App;
 
 namespace BugBox.MvcWeb
 {
-    public static class MapperExtension
+    public static class AutoMapperExtension
     {
         public static void AddMapper(this IServiceCollection services)
         {
@@ -15,7 +12,9 @@ namespace BugBox.MvcWeb
             {
                 //Add profiles of current assembly
                 cfg.AddMaps(System.AppDomain.CurrentDomain.GetAssemblies());
+                cfg.AddMaps(typeof(AppMapperProfile).Assembly); //ToDo: Use module name to load
             });
+           
 
             var mapper = config.CreateMapper();
             services.AddSingleton<IMapper>(mapper);

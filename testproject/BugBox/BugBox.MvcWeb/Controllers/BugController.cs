@@ -1,13 +1,11 @@
-﻿using BugBox.App.Contracts.Bugs;
+﻿using AutoMapper;
+using BugBox.App.Contracts.Bugs;
+using BugBox.MvcWeb.Models.Bugs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using MvcWebTest.Models;
-using AutoMapper;
 
 namespace BugBox.MvcWeb.Controllers
 {
@@ -40,6 +38,7 @@ namespace BugBox.MvcWeb.Controllers
         public ActionResult Create()
         {
             var bug = new BugViewModel();
+            bug.Id = -1;
 
             ViewBag.SeverityList = LoadSeverityList();
             ViewBag.PriorityList = LoadPriorityList();
@@ -99,15 +98,22 @@ namespace BugBox.MvcWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Save(CreateBugViewModel createBugViewModel)
+        public async Task<ActionResult> Save(int id, CreateUpdateBugViewModel createUpdateBugViewModel)
         {
             if (!ModelState.IsValid)
                 return View("Home/Error");
 
             try
             {
-                CreateBugDto bugDto = this.mapper.Map<CreateBugDto>(createBugViewModel);
-                await this.bugAppService.CreateAsync(bugDto);
+                CreateUpdateBugDto bugDto = this.mapper.Map<CreateUpdateBugDto>(createUpdateBugViewModel);
+                if (id <= 0)
+                {
+                    await this.bugAppService.CreateAsync(bugDto);
+                }
+                else
+                {
+                    await this.bugAppService.UpdateAsync(id, bugDto);
+                }
 
                 return RedirectToAction(nameof(Index));
             }

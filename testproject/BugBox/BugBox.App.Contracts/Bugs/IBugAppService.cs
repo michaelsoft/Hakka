@@ -6,9 +6,9 @@ namespace BugBox.App.Contracts.Bugs
 {
     public interface IBugAppService
     {
-        Task<BugDto> CreateAsync(CreateBugDto input);
+        Task<BugDto> CreateAsync(CreateUpdateBugDto input);
 
-        Task<BugDto> UpdateAsync(int id, UpdateBugDto input);
+        Task<BugDto> UpdateAsync(int id, CreateUpdateBugDto input);
 
         Task DeleteByIdAsync(int id);
 

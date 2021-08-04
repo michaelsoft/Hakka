@@ -1,12 +1,13 @@
-﻿using BugBox.Domain.Shared.Bugs;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using BugBox.Domain.Shared.Bugs;
 
-namespace MvcWebTest.Models
+namespace BugBox.MvcWeb.Models.Bugs
 {
-    public class CreateBugViewModel
+    public class BugViewModel
     {
-        [Required]
-        [StringLength(500)]
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public string Description { get; set; }
@@ -17,4 +18,5 @@ namespace MvcWebTest.Models
 
         public BugStatus Status { get; set; }
     }
+
 }
