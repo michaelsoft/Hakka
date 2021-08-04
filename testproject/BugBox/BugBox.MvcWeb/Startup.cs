@@ -14,6 +14,7 @@ using BugBox.Repository.EF;
 using Microsoft.EntityFrameworkCore;
 using BugBox.Domain.Bugs;
 using BugBox.Repository.EF.Bugs;
+using Hakka.Modularity;
 
 
 namespace BugBox.MvcWeb
@@ -31,13 +32,14 @@ namespace BugBox.MvcWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddApplication<BugBoxMvcWebModule>(this.Configuration);
+            //services.AddControllersWithViews();
 
-            services.AddDbContext<BugBoxDbContext>(options => 
-              options.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddScoped<IBugRepository, BugRepository>();
-            services.AddScoped<IBugAppService, BugAppService>();
-            services.AddMapper();
+            //services.AddDbContext<BugBoxDbContext>(options => 
+            //  options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            //services.AddScoped<IBugRepository, BugRepository>();
+            //services.AddScoped<IBugAppService, BugAppService>();
+            //services.AddMapper();
 
 
         }

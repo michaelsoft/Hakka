@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\framework\Hakka.Modularity\Hakka.Modularity.csproj" />
     <ProjectReference Include="..\BugBox.App.Contracts\BugBox.App.Contracts.csproj" />
     <ProjectReference Include="..\BugBox.App\BugBox.App.csproj" />
   </ItemGroup>
